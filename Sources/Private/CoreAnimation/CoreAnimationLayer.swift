@@ -451,6 +451,10 @@ extension CoreAnimationLayer: RootAnimationLayer {
     // since any existing `CAAnimation`s could now be out of date.
     rebuildCurrentAnimation()
   }
+  func removeValueProvider(keypath: AnimationKeypath) {
+    valueProviderStore.removeValueProvider(keypath: keypath)
+    rebuildCurrentAnimation()
+  }
 
   func getValue(for _: AnimationKeypath, atFrame _: AnimationFrameTime?) -> Any? {
     logger.assertionFailure("""

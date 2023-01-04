@@ -688,6 +688,10 @@ final public class LottieAnimationView: LottieAnimationViewBase {
     valueProviders[keypath] = valueProvider
     animationLayer.setValueProvider(valueProvider, keypath: keypath)
   }
+    public func removeValueProvider(keypath: AnimationKeypath) {
+        valueProviders.removeValue(forKey: keypath)
+        animationLayer?.removeValueProvider(keypath: keypath)
+    }
 
   /// Reads the value of a property specified by the Keypath.
   /// Returns nil if no property is found.

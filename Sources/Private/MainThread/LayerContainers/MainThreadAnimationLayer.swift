@@ -213,6 +213,10 @@ final class MainThreadAnimationLayer: CALayer, RootAnimationLayer {
       }
     }
   }
+    func removeValueProvider(keypath: AnimationKeypath) {
+        let p = ColorValueProvider(getOriginalValue(for: keypath, atFrame: 1) as! LottieColor) //get original value for first frame
+        setValueProvider(p, keypath: keypath)
+    }
 
   func getValue(for keypath: AnimationKeypath, atFrame: CGFloat?) -> Any? {
     for layer in animationLayers {
